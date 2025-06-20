@@ -1,0 +1,24 @@
+Pull polyA tags from bam file
+
+```{r}
+library(Rsamtools)
+library(tidyverse)
+```
+
+```{r}
+bam.file <- "output/calls_2025-06-19_T19-55-31.bam"
+# Create parameter object to extract specific tags
+map.params <- ScanBamParam(
+    what = c("rname", "strand", "pos"), 
+    tag = c("pt", "pa")
+)
+
+# Scan BAM file with tag extraction
+bam <- scanBam(bam.file, param = map.params)
+
+str(bam)
+```
+
+```{r}
+bam[[1]]$tag$pt %>% unique() %>% sort() 
+```

@@ -1,0 +1,10 @@
+[anchors]
+rear_primer = "TGATACCACTGCTT"
+front_primer = "AGTACATTGATGGTGCCTACAG"
+primer_window = 150
+
+[threshold]
+flank_threshold = 0.6
+
+[tail]
+tail_interrupt_length = 10
